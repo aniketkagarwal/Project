@@ -2,6 +2,9 @@
   "name": "project",
   "version": "1.0.0",
   "description": "Application showing nodejs",
+  "engines": {
+    "node": "12.x"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,10 +14,16 @@
   "keywords": [
     "node",
     "mongodb",
-    "mongoose"
+    "mongoose",
+    "heroku",
+    "express"
   ],
   "author": "Aniket Agarwal",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aniketkagarwal/Project"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "custom-env": "^1.0.2",
