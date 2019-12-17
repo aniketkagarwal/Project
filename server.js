@@ -5,6 +5,12 @@ var request = require('request');
 var url = require('url');
 var app = express();
 
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
 app.use(express.static('public'));
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -26,6 +32,18 @@ app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
   res.render('index');
 })
+
+.get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM test_table');
+      const results = { 'results': (result) ? result.rows : null};
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
 
 app.post("/submit", function(req, res) {
  var myData = new User(req.body);
