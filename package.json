@@ -27,8 +27,10 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "custom-env": "^1.0.2",
+    "ejs": "^2.7.4",
     "express": "^4.17.1",
-    "mongoose": "^5.7.14"
+    "mongoose": "^5.7.14",
+    "pg": "^7.14.0"
   },
   "devDependencies": {}
 }
